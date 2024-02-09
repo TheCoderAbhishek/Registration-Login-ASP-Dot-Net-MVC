@@ -1,17 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using Registration_Login_ASP_Dot_Net_MVC.Data;
+using Registration_Login_ASP_Dot_Net_MVC.Interfaces.AccountInterfaces;
+using Registration_Login_ASP_Dot_Net_MVC.Services.AccountService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Retrieve the configuration from the services container
-var configuration = builder.Configuration;
-
 // Add DbContext before calling Build()
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AccountDbContext>(options =>
-    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
+
+// Add the AccountService and IAccountInterface to the services container
+builder.Services.AddScoped<IAccountInterface, AccountService>();
 
 builder.Services.AddAuthentication(options =>
 {
