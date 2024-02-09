@@ -35,6 +35,9 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                 // Register the user
                 await _accountService.RegisterUser(registerViewModel);
 
+                // Set a success message
+                TempData["SuccessMessage"] = "Registration successful! You can now login.";
+
                 // Redirect to the Index action of HomeController
                 return RedirectToAction("Index", "Home");
             }

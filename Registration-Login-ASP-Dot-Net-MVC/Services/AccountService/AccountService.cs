@@ -5,7 +5,6 @@ using Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel;
 using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using static Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel.Users;
 
 namespace Registration_Login_ASP_Dot_Net_MVC.Services.AccountService
@@ -24,14 +23,14 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Services.AccountService
             return await _accountDbContext.Users.AnyAsync(u => u.Email == email);
         }
 
-        public async Task RegisterUser(RegisterViewModel model)
+        public async Task RegisterUser(RegisterViewModel registerViewModel)
         {
-            var hashedPassword = HashPassword(model.Password);
+            var hashedPassword = HashPassword(registerViewModel.Password);
 
             var user = new User
             {
-                Username = model.Username,
-                Email = model.Email,
+                Username = registerViewModel.Username,
+                Email = registerViewModel.Email,
                 PasswordHash = hashedPassword
             };
 
