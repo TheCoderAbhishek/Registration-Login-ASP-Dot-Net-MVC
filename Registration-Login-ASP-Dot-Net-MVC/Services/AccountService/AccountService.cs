@@ -8,14 +8,9 @@ using static Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel.Users;
 
 namespace Registration_Login_ASP_Dot_Net_MVC.Services.AccountService
 {
-    public class AccountService : IAccountInterface
+    public class AccountService(AccountDbContext accountDbContext) : IAccountInterface
     {
-        private readonly AccountDbContext _accountDbContext;
-
-        public AccountService(AccountDbContext accountDbContext)
-        {
-            _accountDbContext = accountDbContext;
-        }
+        private readonly AccountDbContext _accountDbContext = accountDbContext;
 
         public async Task<bool> IsEmailAlreadyRegistered(string? email)
         {
@@ -52,7 +47,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Services.AccountService
         }
 
         // Helper method to hash password
-        private string HashPassword(string? password)
+        private static string HashPassword(string? password)
         {
             if (password == null)
             {

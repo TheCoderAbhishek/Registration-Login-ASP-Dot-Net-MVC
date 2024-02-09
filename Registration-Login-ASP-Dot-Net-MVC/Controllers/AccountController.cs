@@ -4,14 +4,9 @@ using Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel;
 
 namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController(IAccountInterface accountService) : Controller
     {
-        private readonly IAccountInterface _accountService;
-
-        public AccountController(IAccountInterface accountService)
-        {
-            _accountService = accountService;
-        }
+        private readonly IAccountInterface _accountService = accountService;
 
         [HttpGet]
         public IActionResult Register()
