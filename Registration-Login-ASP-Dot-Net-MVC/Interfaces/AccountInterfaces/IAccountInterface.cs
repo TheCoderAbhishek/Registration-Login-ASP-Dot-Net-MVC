@@ -1,5 +1,4 @@
 ﻿using Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel;
-using System.Threading.Tasks;
 
 namespace Registration_Login_ASP_Dot_Net_MVC.Interfaces.AccountInterfaces
 {
