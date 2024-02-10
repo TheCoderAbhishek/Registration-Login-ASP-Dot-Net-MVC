@@ -139,3 +139,4 @@ E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MV
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.MvcApplicationPartsAssemblyInfo.cs
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Newtonsoft.Json.dll

@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "OTP Verification";
+}
+
+<h2>OTP Verification</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Enter OTP</div>
+                <div class="card-body">
+                    <form asp-controller="Account" asp-action="VerifyOTP" method="post">
+                        <div class="form-group">
+                            <label for="otp">OTP:</label>
+                            <input type="text" id="otp" name="otp" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Verify OTP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

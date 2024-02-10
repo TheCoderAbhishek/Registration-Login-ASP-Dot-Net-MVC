@@ -4,6 +4,10 @@ using Registration_Login_ASP_Dot_Net_MVC.Interfaces.AccountInterfaces;
 using Registration_Login_ASP_Dot_Net_MVC.Services.AccountService;
 using FluentValidation.AspNetCore;
 using FluentValidation;
+using Registration_Login_ASP_Dot_Net_MVC.Interfaces.EmailInterface;
+using Registration_Login_ASP_Dot_Net_MVC.Interfaces.OtpAuthenticationInterface;
+using Registration_Login_ASP_Dot_Net_MVC.Services.EmailService;
+using Registration_Login_ASP_Dot_Net_MVC.Services.OtpService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +21,8 @@ builder.Services.AddDbContext<AccountDbContext>(options =>
 
 // Add the AccountService and IAccountInterface to the services container
 builder.Services.AddScoped<IAccountInterface, AccountService>();
+builder.Services.AddScoped<IOTPService, OTPService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 // Add FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
@@ -30,6 +36,9 @@ builder.Services.AddAuthentication(options =>
     options.DefaultSignOutScheme = Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme;
 })
 .AddCookie();
+
+// Enable session state
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -48,6 +57,9 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Use session middleware
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
