@@ -1,7 +1,35 @@
+using Microsoft.EntityFrameworkCore;
+using Registration_Login_ASP_Dot_Net_MVC.Data;
+using Registration_Login_ASP_Dot_Net_MVC.Interfaces.AccountInterfaces;
+using Registration_Login_ASP_Dot_Net_MVC.Services.AccountService;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add DbContext before calling Build()
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AccountDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+// Add the AccountService and IAccountInterface to the services container
+builder.Services.AddScoped<IAccountInterface, AccountService>();
+
+// Add FluentValidation
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignOutScheme = Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme;
+})
+.AddCookie();
 
 var app = builder.Build();
 
@@ -18,6 +46,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
