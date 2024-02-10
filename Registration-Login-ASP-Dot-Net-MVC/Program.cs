@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Registration_Login_ASP_Dot_Net_MVC.Data;
 using Registration_Login_ASP_Dot_Net_MVC.Interfaces.AccountInterfaces;
 using Registration_Login_ASP_Dot_Net_MVC.Services.AccountService;
+using FluentValidation.AspNetCore;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,11 @@ builder.Services.AddDbContext<AccountDbContext>(options =>
 
 // Add the AccountService and IAccountInterface to the services container
 builder.Services.AddScoped<IAccountInterface, AccountService>();
+
+// Add FluentValidation
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.Services.AddAuthentication(options =>
 {

@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "x13KQos4IXQUoJuuucyNJdYutXQSORhbl3jsg36296MGDCR5rMgy5K0Ca9EtuLT1RBauZJtj7TdjGXE6JGOYWQ==",
+  "dgSpecHash": "Va8b2YIK3UzH2On9to64+E6Z7k3vYlaw3OniJBDzt5ovm5WBts8qBymNjR62GOXJXvliVSUS4R7bT3MumD5cxQ==",
   "success": true,
   "projectFilePath": "E:\\Projects\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\patil\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\bootstrap\\5.3.2\\bootstrap.5.3.2.nupkg.sha512",
+    "C:\\Users\\patil\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\patil\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\patil\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",

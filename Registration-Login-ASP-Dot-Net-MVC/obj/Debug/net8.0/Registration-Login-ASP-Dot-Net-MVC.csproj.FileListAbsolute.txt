@@ -135,3 +135,7 @@ E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MV
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.csproj.AssemblyReference.cache
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.csproj.CopyComplete
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\FluentValidation.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.MvcApplicationPartsAssemblyInfo.cs
