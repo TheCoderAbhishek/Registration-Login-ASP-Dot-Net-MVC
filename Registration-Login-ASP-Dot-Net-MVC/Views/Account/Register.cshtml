@@ -22,18 +22,28 @@
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="form-group mt-2">
-                            <label asp-for="Password">Password:</label>
-                            <input asp-for="Password" type="password" class="form-control mt-2" />
+                            <label>Password:</label>
+                            <div class="input-group">
+                                <input asp-for="Password" id="passwordInput" type="password" class="form-control" />
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('passwordInput', 'passwordToggleIcon')" style="min-width: 38px">
+                                    <i id="passwordToggleIcon" class="fa fa-eye" aria-hidden="true" style="font-size: 14px;"></i>
+                                </button>
+                            </div>
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                         <div class="form-group mt-2">
-                            <label asp-for="ConfirmPassword">Confirm Password:</label>
-                            <input asp-for="ConfirmPassword" type="password" class="form-control mt-2" />
+                            <label>Confirm Password:</label>
+                            <div class="input-group">
+                                <input asp-for="ConfirmPassword" id="confirmPasswordInput" type="password" class="form-control" />
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('confirmPasswordInput', 'confirmPasswordToggleIcon')" style="min-width: 38px">
+                                    <i id="confirmPasswordToggleIcon" class="fa fa-eye" aria-hidden="true" style="font-size: 14px;"></i>
+                                </button>
+                            </div>
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
                         <div class="form-group mt-2">
                             <button type="submit" class="btn btn-primary">Register</button>
-                            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Home</a>
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-dark">Back to Home</a>
                         </div>
                     </form>
                 </div>
@@ -41,3 +51,19 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        function togglePasswordVisibility(inputId, iconId) {
+            var x = document.getElementById(inputId);
+            var icon = document.getElementById(iconId);
+            if (x.type === "password") {
+                x.type = "text";
+                icon.className = "fa fa-eye-slash";
+            } else {
+                x.type = "password";
+                icon.className = "fa fa-eye";
+            }
+        }
+    </script>
+}
