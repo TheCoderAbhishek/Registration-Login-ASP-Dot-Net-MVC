@@ -9,7 +9,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel
         public string? Username { get; set; }
 
         [Required]
-        [RegularExpression(@"^[\w-]+(\.[\w-]+)*@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\.com$", ErrorMessage = "Invalid email address format. Email must end with '.com'")]
+        [RegularExpression(@"^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$", ErrorMessage = "Invalid email address format.")]
         public string? Email { get; set; }
 
         [Required]
