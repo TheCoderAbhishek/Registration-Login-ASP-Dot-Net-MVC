@@ -139,3 +139,12 @@ E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MV
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.MvcApplicationPartsAssemblyInfo.cs
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.AspNetCore.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+E:\Projects\Registration-Login-ASP-Dot-Net-MVC\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Serilog.Sinks.File.dll
