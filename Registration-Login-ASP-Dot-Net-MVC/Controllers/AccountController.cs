@@ -84,6 +84,8 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                     if (isAuthenticated)
                     {
                         _logger.LogInformation("User logged in successfully: {Email}", loginViewModel.Email);
+                        // Set a success message
+                        TempData["SuccessMessage"] = "Login successful.";
                         return RedirectToAction("Index", "Home");
                     }
                     else

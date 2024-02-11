@@ -66,3 +66,12 @@
 2024-02-11 09:08:56.650 +05:30 [INF] Email 'patilabhishek394@yahoo.com' is already registered.
 2024-02-11 09:08:56.766 +05:30 [INF] User logged in successfully: patilabhishek394@yahoo.com
 2024-02-11 09:08:56.768 +05:30 [INF] User logged in successfully: patilabhishek394@yahoo.com
+2024-02-11 09:23:51.298 +05:30 [INF] Email 'shrey@gmail.com' is not registered.
+2024-02-11 09:24:19.134 +05:30 [INF] User registered successfully: shrey@gmail.com
+2024-02-11 09:24:23.379 +05:30 [INF] User registered successfully: shrey@gmail.com
+2024-02-11 09:25:25.321 +05:30 [INF] Email 'shrey@gmail.com' is already registered.
+2024-02-11 09:25:44.250 +05:30 [INF] User logged in successfully: shrey@gmail.com
+2024-02-11 09:25:48.230 +05:30 [INF] User logged in successfully: shrey@gmail.com
+2024-02-11 09:29:15.952 +05:30 [INF] Email 'shrey@gmail.com' is already registered.
+2024-02-11 09:29:16.040 +05:30 [INF] User logged in successfully: shrey@gmail.com
+2024-02-11 09:29:16.041 +05:30 [INF] User logged in successfully: shrey@gmail.com
