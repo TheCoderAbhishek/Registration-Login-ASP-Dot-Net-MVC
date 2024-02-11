@@ -24,8 +24,8 @@
                         <div class="form-group mt-2">
                             <label>Password:</label>
                             <div class="input-group">
-                                <input asp-for="Password" id="passwordInput" type="password" class="form-control" />
-                                <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('passwordInput', 'passwordToggleIcon')" style="min-width: 38px">
+                                <input asp-for="Password" id="passwordInput" type="password" class="form-control mt-2" />
+                                <button class="btn btn-outline-secondary mt-2" type="button" onclick="togglePasswordVisibility('passwordInput', 'passwordToggleIcon')" style="min-width: 38px">
                                     <i id="passwordToggleIcon" class="fa fa-eye" aria-hidden="true" style="font-size: 14px;"></i>
                                 </button>
                             </div>
@@ -34,14 +34,14 @@
                         <div class="form-group mt-2">
                             <label>Confirm Password:</label>
                             <div class="input-group">
-                                <input asp-for="ConfirmPassword" id="confirmPasswordInput" type="password" class="form-control" />
-                                <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('confirmPasswordInput', 'confirmPasswordToggleIcon')" style="min-width: 38px">
+                                <input asp-for="ConfirmPassword" id="confirmPasswordInput" type="password" class="form-control mt-2" />
+                                <button class="btn btn-outline-secondary mt-2" type="button" onclick="togglePasswordVisibility('confirmPasswordInput', 'confirmPasswordToggleIcon')" style="min-width: 38px">
                                     <i id="confirmPasswordToggleIcon" class="fa fa-eye" aria-hidden="true" style="font-size: 14px;"></i>
                                 </button>
                             </div>
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
-                        <div class="form-group mt-2">
+                        <div class="form-group mt-3">
                             <button type="submit" class="btn btn-primary">Register</button>
                             <a href="@Url.Action("Index", "Home")" class="btn btn-dark">Back to Home</a>
                         </div>
