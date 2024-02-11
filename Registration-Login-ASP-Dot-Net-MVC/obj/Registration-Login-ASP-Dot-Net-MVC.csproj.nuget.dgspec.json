@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj": {}
+    "E:\\Registration-Login-ASP-Dot-Net-MVC-Project\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj": {
+    "E:\\Registration-Login-ASP-Dot-Net-MVC-Project\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj",
+        "projectUniqueName": "E:\\Registration-Login-ASP-Dot-Net-MVC-Project\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj",
         "projectName": "Registration-Login-ASP-Dot-Net-MVC",
-        "projectPath": "E:\\Projects\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj",
+        "projectPath": "E:\\Registration-Login-ASP-Dot-Net-MVC-Project\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj",
         "packagesPath": "C:\\Users\\patil\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC\\obj\\",
+        "outputPath": "E:\\Registration-Login-ASP-Dot-Net-MVC-Project\\Registration-Login-ASP-Dot-Net-MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

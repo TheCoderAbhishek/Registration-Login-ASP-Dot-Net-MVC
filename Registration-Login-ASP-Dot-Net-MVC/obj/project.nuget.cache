@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tOkJ5ZVYGlI1oIkc9JvMZTBWINI+Oz2qjLwsbedwA0VreDztiFyKcV7CAVM1DWplEuuDmWO+f1KTYtpkt9x3zw==",
+  "dgSpecHash": "Gq2Ptj+tAo+xFgIz4M8gsojTJnKTagbuAWX7ZNCvWTenRoh0IZ9cB1UPq4ipEbBmPUOo7AtFLzUNmad6OSXT9w==",
   "success": true,
-  "projectFilePath": "E:\\Projects\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj",
+  "projectFilePath": "E:\\Registration-Login-ASP-Dot-Net-MVC-Project\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\patil\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
