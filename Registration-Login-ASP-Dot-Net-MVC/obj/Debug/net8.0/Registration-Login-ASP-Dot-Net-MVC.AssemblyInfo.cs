@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Registration-Login-ASP-Dot-Net-MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c3cab4143dc63cbb0abafbf3487d9cbe44f3ea1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7b2e9031920fd01b84da705531b23f5284cd055")]
 [assembly: System.Reflection.AssemblyProductAttribute("Registration-Login-ASP-Dot-Net-MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Registration-Login-ASP-Dot-Net-MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
