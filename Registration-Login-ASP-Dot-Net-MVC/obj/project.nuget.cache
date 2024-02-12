@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Gq2Ptj+tAo+xFgIz4M8gsojTJnKTagbuAWX7ZNCvWTenRoh0IZ9cB1UPq4ipEbBmPUOo7AtFLzUNmad6OSXT9w==",
+  "dgSpecHash": "wd9zF6RCii51LS4KcnYPD8sI5yXhcToEuGgI8qyB5A2vAYn7jJtiU7+iPfmspewulOgFLWc5/w6aDynfAmtLtw==",
   "success": true,
   "projectFilePath": "E:\\Registration-Login-ASP-Dot-Net-MVC-Project\\Registration-Login-ASP-Dot-Net-MVC\\Registration-Login-ASP-Dot-Net-MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\patil\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\patil\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\bootstrap\\5.3.2\\bootstrap.5.3.2.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
