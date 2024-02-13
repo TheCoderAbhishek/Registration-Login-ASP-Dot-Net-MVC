@@ -1,7 +1,7 @@
 ﻿@model Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel.LoginViewModel
 
 <head>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeHInApAAAAAMbeSOAjp2RGL7sTJ-HipAuHPkms"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=[your_site_key]"></script>
     <title>@ViewData["Title"] Login</title>
 </head>
 
@@ -64,7 +64,7 @@
             event.preventDefault();
 
             grecaptcha.ready(function () {
-                grecaptcha.execute('6LeHInApAAAAAMbeSOAjp2RGL7sTJ-HipAuHPkms', { action: 'login' }).then(function (token) {
+                grecaptcha.execute('[your_site_key]', { action: 'login' }).then(function (token) {
                     document.getElementById('recaptchaToken').value = token;
                     document.getElementById('loginForm').submit();
                 });

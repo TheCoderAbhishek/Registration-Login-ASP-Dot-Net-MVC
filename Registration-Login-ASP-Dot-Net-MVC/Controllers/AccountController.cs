@@ -1,15 +1,64 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Registration_Login_ASP_Dot_Net_MVC.Interfaces.AccountInterfaces;
+using Registration_Login_ASP_Dot_Net_MVC.Interfaces.EmailInterface;
+using Registration_Login_ASP_Dot_Net_MVC.Interfaces.OtpInterface;
 using Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel;
 using Registration_Login_ASP_Dot_Net_MVC.Models.reCaptchaModel;
+using Registration_Login_ASP_Dot_Net_MVC.Services.EmailService;
+using Registration_Login_ASP_Dot_Net_MVC.Services.OtpService;
 
 namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
 {
-    public class AccountController(IAccountInterface accountService, ILogger<AccountController> logger) : Controller
+    public class AccountController(IAccountInterface accountService, ILogger<AccountController> logger, IOtpInterface otpInterface, IEmailInterface emailInterface) : Controller
     {
         private readonly IAccountInterface _accountService = accountService;
         private readonly ILogger<AccountController> _logger = logger;
+        private readonly IOtpInterface _otpInterface = otpInterface;
+        private readonly IEmailInterface _emailInterface = emailInterface;
+
+        [HttpGet]
+        public IActionResult OTPVerification()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyOTP(string otp)
+        {
+            var storedOTP = TempData["OTP"]?.ToString();
+            var registerDataJson = TempData["RegisterDataJson"] as string;
+
+            if (string.IsNullOrEmpty(storedOTP) || string.IsNullOrEmpty(registerDataJson))
+            {
+                return RedirectToAction("Error");
+            }
+
+            var registerViewModel = JsonConvert.DeserializeObject<RegisterViewModel>(registerDataJson);
+
+            if (registerViewModel == null)
+            {
+                ModelState.AddModelError("", "Registration data is invalid.");
+                return View("OTPVerification");
+            }
+
+            if (otp == storedOTP)
+            {
+                await _accountService.RegisterUser(registerViewModel);
+
+                TempData.Remove("OTP");
+                TempData.Remove("RegisterDataJson");
+
+                TempData["SuccessMessage"] = "Registration successful! You are now logged in.";
+
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("otp", "Invalid OTP. Please try again.");
+                return View("OTPVerification");
+            }
+        }
 
         [HttpGet]
         public IActionResult Register()
@@ -25,7 +74,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                 try
                 {
                     var httpClient = new HttpClient();
-                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=6LeHInApAAAAAF7Au3eniL-dnnVQUWv5IH84LZVc&response={recaptchaToken}");
+                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=[your_secret_key]&response={recaptchaToken}");
 
                     var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
 
@@ -41,6 +90,18 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                         return View(registerViewModel);
                     }
 
+                    string otp = _otpInterface.GenerateOTP();
+
+                    if (registerViewModel.Email != null)
+                    {
+                        await _emailInterface.SendOTPEmailAsync(registerViewModel.Email, otp);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Email", "Email address is required.");
+                        return View(registerViewModel);
+                    }
+
                     if (await _accountService.IsEmailAlreadyRegistered(registerViewModel.Email))
                     {
                         ModelState.AddModelError("Email", "Email is already registered.");
@@ -48,13 +109,18 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                         return View(registerViewModel);
                     }
 
-                    await _accountService.RegisterUser(registerViewModel);
+                    // Serialize the registration data to JSON string
+                    string registerDataJson = JsonConvert.SerializeObject(registerViewModel);
 
-                    _logger.LogInformation("User registered successfully: {Email}", registerViewModel.Email);
+                    // Store the registration data JSON string and OTP in TempData
+                    TempData["RegisterDataJson"] = registerDataJson;
+                    TempData["OTP"] = otp;
 
-                    TempData["SuccessMessage"] = "Registration successful! You can now login.";
+                    // Set success message
+                    TempData["SuccessMessage"] = "OTP successfully sent! Please check your email.";
 
-                    return RedirectToAction("Index", "Home");
+                    // Redirect to OTP verification page
+                    return RedirectToAction("OTPVerification");
                 }
                 catch (Exception ex)
                 {
@@ -81,7 +147,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                 try
                 {
                     var httpClient = new HttpClient();
-                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=6LeHInApAAAAAF7Au3eniL-dnnVQUWv5IH84LZVc&response={recaptchaToken}");
+                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=[your_secret_key]&response={recaptchaToken}");
 
                     var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
 

@@ -1,0 +1,5 @@
+2024-02-13 22:04:41.908 +05:30 [INF] Email 'patilabhishek394@yahoo.com' is not registered.
+2024-02-13 22:06:17.217 +05:30 [INF] User registered successfully: patilabhishek394@yahoo.com
+2024-02-13 22:06:57.904 +05:30 [INF] Email 'patilabhishek394@yahoo.com' is already registered.
+2024-02-13 22:06:58.070 +05:30 [INF] User logged in successfully: patilabhishek394@yahoo.com
+2024-02-13 22:06:58.070 +05:30 [INF] User logged in successfully: patilabhishek394@yahoo.com

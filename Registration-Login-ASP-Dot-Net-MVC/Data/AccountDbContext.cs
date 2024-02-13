@@ -9,7 +9,6 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Data
         {
         }
 
-        // DbSet representing the Users table in the database
         public DbSet<User> Users { get; set; }
     }
 }
