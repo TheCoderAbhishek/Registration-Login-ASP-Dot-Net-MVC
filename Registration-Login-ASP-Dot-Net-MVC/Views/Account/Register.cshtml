@@ -1,6 +1,7 @@
 ﻿@model Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel.RegisterViewModel
 
 <head>
+    <script src="https://www.google.com/recaptcha/api.js?render=[Your-Site-Key]"></script>
     <title>@ViewData["Title"] Register</title>
 </head>
 
@@ -10,7 +11,7 @@
             <div class="card">
                 <div class="card-header"><h3>Register</h3></div>
                 <div class="card-body">
-                    <form asp-controller="Account" asp-action="Register" method="post">
+                    <form id="registerForm" asp-controller="Account" asp-action="Register" method="post">
                         <div class="form-group">
                             <label asp-for="Username">Username:</label>
                             <input asp-for="Username" class="form-control mt-2" />
@@ -41,8 +42,9 @@
                             </div>
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
+                        <input type="hidden" id="recaptchaToken" name="recaptchaToken" />
                         <div class="form-group mt-3">
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" class="btn btn-primary" onclick="onRegisterSubmit(event)">Register</button>
                             <a href="@Url.Action("Index", "Home")" class="btn btn-dark">Back to Home</a>
                         </div>
                     </form>
@@ -64,6 +66,15 @@
                 x.type = "password";
                 icon.className = "fa fa-eye";
             }
+        }
+        function onRegisterSubmit(event) {
+            event.preventDefault();
+            grecaptcha.ready(function () {
+                grecaptcha.execute('[Your-Site-Key]', { action: 'register' }).then(function (token) {
+                    document.getElementById('recaptchaToken').value = token;
+                    document.getElementById('registerForm').submit();
+                });
+            });
         }
     </script>
 }

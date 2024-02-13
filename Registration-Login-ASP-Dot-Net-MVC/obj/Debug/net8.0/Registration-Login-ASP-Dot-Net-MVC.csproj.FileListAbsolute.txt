@@ -298,3 +298,4 @@ E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.pdb
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.genruntimeconfig.cache
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\ref\Registration-Login-ASP-Dot-Net-MVC.dll
+E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Newtonsoft.Json.dll
