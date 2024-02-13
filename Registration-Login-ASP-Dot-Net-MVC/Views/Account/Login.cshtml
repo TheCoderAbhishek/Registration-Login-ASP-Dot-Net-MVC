@@ -1,6 +1,7 @@
 ﻿@model Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel.LoginViewModel
 
 <head>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeHInApAAAAAMbeSOAjp2RGL7sTJ-HipAuHPkms"></script>
     <title>@ViewData["Title"] Login</title>
 </head>
 
@@ -18,7 +19,7 @@
                         </div>
                     }
 
-                    <form asp-action="Login" method="post">
+                    <form id="loginForm" asp-action="Login" method="post">
                         <div class="form-group mt-2">
                             <label asp-for="Email">Email:</label>
                             <input asp-for="Email" class="form-control mt-2" />
@@ -34,8 +35,9 @@
                             </div>
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
+                        <input type="hidden" id="recaptchaToken" name="recaptchaToken" />
                         <div class="mt-3">
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn btn-primary" onclick="onLoginSubmit(event)">Login</button>
                             <a href="@Url.Action("Index", "Home")" class="btn btn-dark">Back to Home</a>
                         </div>
                     </form>
@@ -57,6 +59,19 @@
                 x.type = "password";
                 icon.className = "fa fa-eye";
             }
+        }
+        function onLoginSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LeHInApAAAAAMbeSOAjp2RGL7sTJ-HipAuHPkms', { action: 'login' }).then(function (token) {
+                    // Store the token in the hidden input field
+                    document.getElementById('recaptchaToken').value = token;
+
+                    // Submit the form
+                    document.getElementById('loginForm').submit();
+                });
+            });
         }
     </script>
 }

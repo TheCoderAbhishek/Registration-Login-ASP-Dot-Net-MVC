@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Registration_Login_ASP_Dot_Net_MVC.Interfaces.AccountInterfaces;
 using Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel;
+using Registration_Login_ASP_Dot_Net_MVC.Models.reCaptchaModel;
 
 namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
 {
@@ -16,38 +18,46 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel, string recaptchaToken)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    // Check if email is already registered
-                    if (await _accountService.IsEmailAlreadyRegistered(registerViewModel.Email))
+                    var httpClient = new HttpClient();
+                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=6LeHInApAAAAAF7Au3eniL-dnnVQUWv5IH84LZVc&response={recaptchaToken}");
+
+                    var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
+
+                    if (result == null)
                     {
-                        ModelState.AddModelError("Email", "Email is already registered.");
-
-                        // Log the scenario
-                        _logger.LogWarning("Email '{Email}' is already registered.", registerViewModel.Email);
-
+                        ViewData["ErrorMessage"] = "reCAPTCHA validation failed. Please try again.";
                         return View(registerViewModel);
                     }
 
-                    // Register the user
+                    if (!result.Success)
+                    {
+                        ViewData["ErrorMessage"] = "reCAPTCHA validation failed. Please try again.";
+                        return View(registerViewModel);
+                    }
+
+                    if (await _accountService.IsEmailAlreadyRegistered(registerViewModel.Email))
+                    {
+                        ModelState.AddModelError("Email", "Email is already registered.");
+                        _logger.LogWarning("Email '{Email}' is already registered.", registerViewModel.Email);
+                        return View(registerViewModel);
+                    }
+
                     await _accountService.RegisterUser(registerViewModel);
 
-                    // Log the success scenario
                     _logger.LogInformation("User registered successfully: {Email}", registerViewModel.Email);
 
-                    // Set a success message
                     TempData["SuccessMessage"] = "Registration successful! You can now login.";
 
-                    // Redirect to the Index action of HomeController
                     return RedirectToAction("Index", "Home");
                 }
                 catch (Exception ex)
                 {
-                    // Log the error scenario
                     _logger.LogError(ex, "Error occurred while registering user.");
                     ModelState.AddModelError(string.Empty, "An error occurred while processing your request.");
                     return View(registerViewModel);
@@ -64,12 +74,29 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel, string recaptchaToken)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var httpClient = new HttpClient();
+                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=6LeHInApAAAAAF7Au3eniL-dnnVQUWv5IH84LZVc&response={recaptchaToken}");
+
+                    var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
+
+                    if (result == null)
+                    {
+                        ViewData["ErrorMessage"] = "reCAPTCHA validation failed. Please try again.";
+                        return View(loginViewModel);
+                    }
+
+                    if (!result.Success)
+                    {
+                        ViewData["ErrorMessage"] = "reCAPTCHA validation failed. Please try again.";
+                        return View(loginViewModel);
+                    }
+
                     var isEmailRegistered = await _accountService.IsEmailAlreadyRegistered(loginViewModel.Email);
 
                     if (!isEmailRegistered)
@@ -84,7 +111,6 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                     if (isAuthenticated)
                     {
                         _logger.LogInformation("User logged in successfully: {Email}", loginViewModel.Email);
-                        // Set a success message
                         TempData["SuccessMessage"] = "Login successful.";
                         return RedirectToAction("Index", "Home");
                     }
