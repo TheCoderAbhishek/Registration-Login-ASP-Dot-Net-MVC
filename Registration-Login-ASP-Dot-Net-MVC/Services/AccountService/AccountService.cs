@@ -1,12 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging; // Added
 using Registration_Login_ASP_Dot_Net_MVC.Data;
 using Registration_Login_ASP_Dot_Net_MVC.Interfaces.AccountInterfaces;
 using Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel;
-using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using static Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel.Users;
 
 namespace Registration_Login_ASP_Dot_Net_MVC.Services.AccountService
@@ -71,10 +68,8 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Services.AccountService
 
                 if (user != null)
                 {
-                    var hashedPassword = HashPassword(password);
-                    var isAuthenticated = hashedPassword == user.PasswordHash;
+                    var isAuthenticated = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
 
-                    // Log the scenario
                     if (isAuthenticated)
                         _logger.LogInformation("User logged in successfully: {Email}", email);
                     else
@@ -102,11 +97,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Services.AccountService
                 throw new ArgumentNullException(nameof(password));
             }
 
-            using (var sha256 = SHA256.Create())
-            {
-                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hashedBytes);
-            }
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
     }
 }

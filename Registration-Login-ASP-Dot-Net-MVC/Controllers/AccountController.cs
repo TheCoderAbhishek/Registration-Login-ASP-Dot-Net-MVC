@@ -25,7 +25,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                 try
                 {
                     var httpClient = new HttpClient();
-                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=[Your-Secret-Key]&response={recaptchaToken}");
+                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=6LeHInApAAAAAF7Au3eniL-dnnVQUWv5IH84LZVc&response={recaptchaToken}");
 
                     var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
 
@@ -81,7 +81,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                 try
                 {
                     var httpClient = new HttpClient();
-                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=[Your-Secret-Key]&response={recaptchaToken}");
+                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=6LeHInApAAAAAF7Au3eniL-dnnVQUWv5IH84LZVc&response={recaptchaToken}");
 
                     var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
 
