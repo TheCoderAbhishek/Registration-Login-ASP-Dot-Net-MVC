@@ -2,8 +2,6 @@
     ViewData["Title"] = "OTP Verification";
 }
 
-<h2>OTP Verification</h2>
-
 @if (TempData["SuccessMessage"] != null)
 {
     <div class="alert alert-success" role="alert">
@@ -15,14 +13,21 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Enter OTP</div>
+                <div class="card-header"><h3>Enter OTP</h3></div>
                 <div class="card-body">
+                    @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+                    {
+                        <div id="errorMessage" class="alert alert-danger alert-dismissible" role="alert">
+                            @Html.Raw(ViewData["ErrorMessage"])
+                            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
                     <form asp-controller="Account" asp-action="VerifyOTP" method="post">
                         <div class="form-group">
                             <label for="otp">OTP:</label>
                             <input type="text" id="otp" name="otp" class="form-control" />
                         </div>
-                        <button type="submit" class="btn btn-primary">Verify OTP</button>
+                        <button type="submit" class="btn btn-primary mt-2">Verify OTP</button>
                     </form>
                 </div>
             </div>

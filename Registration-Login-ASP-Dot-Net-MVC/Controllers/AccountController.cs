@@ -5,8 +5,6 @@ using Registration_Login_ASP_Dot_Net_MVC.Interfaces.EmailInterface;
 using Registration_Login_ASP_Dot_Net_MVC.Interfaces.OtpInterface;
 using Registration_Login_ASP_Dot_Net_MVC.Models.AccountModel;
 using Registration_Login_ASP_Dot_Net_MVC.Models.reCaptchaModel;
-using Registration_Login_ASP_Dot_Net_MVC.Services.EmailService;
-using Registration_Login_ASP_Dot_Net_MVC.Services.OtpService;
 
 namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
 {
@@ -31,7 +29,8 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
 
             if (string.IsNullOrEmpty(storedOTP) || string.IsNullOrEmpty(registerDataJson))
             {
-                return RedirectToAction("Error");
+                TempData["ErrorMessage"] = "Invalid Otp.";
+                return View("OTPVerification");
             }
 
             var registerViewModel = JsonConvert.DeserializeObject<RegisterViewModel>(registerDataJson);
@@ -55,6 +54,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
             }
             else
             {
+                ViewData["ErrorMessage"] = "Invalid Otp. Please check OTP again.";
                 ModelState.AddModelError("otp", "Invalid OTP. Please try again.");
                 return View("OTPVerification");
             }
@@ -74,7 +74,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                 try
                 {
                     var httpClient = new HttpClient();
-                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=[your_secret_key]&response={recaptchaToken}");
+                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=6LfivHEpAAAAAEqU2TNtCRwlRwdBqBjg2NwbIjkR&response={recaptchaToken}");
 
                     var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
 
@@ -147,7 +147,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                 try
                 {
                     var httpClient = new HttpClient();
-                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=[your_secret_key]&response={recaptchaToken}");
+                    var response = await httpClient.GetStringAsync($"https://www.google.com/recaptcha/api/siteverify?secret=6LfivHEpAAAAAEqU2TNtCRwlRwdBqBjg2NwbIjkR&response={recaptchaToken}");
 
                     var result = JsonConvert.DeserializeObject<RecaptchaResponse>(response);
 
