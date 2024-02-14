@@ -178,7 +178,7 @@ namespace Registration_Login_ASP_Dot_Net_MVC.Controllers
                     {
                         _logger.LogInformation("User logged in successfully: {Email}", loginViewModel.Email);
                         TempData["SuccessMessage"] = "Login successful.";
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Dashboard");
                     }
                     else
                     {

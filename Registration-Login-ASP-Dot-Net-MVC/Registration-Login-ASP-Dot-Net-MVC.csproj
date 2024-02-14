@@ -30,6 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\DashboardModel\" />
+    <Folder Include="Services\DashboardService\" />
     <Folder Include="Views\AccountView\" />
   </ItemGroup>
 
