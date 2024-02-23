@@ -292,7 +292,6 @@ E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\scopedcss\bundle\Registration-Login-ASP-Dot-Net-MVC.styles.css
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\scopedcss\projectbundle\Registration-Login-ASP-Dot-Net-MVC.bundle.scp.css
-E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.csproj.CopyComplete
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.dll
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\refint\Registration-Login-ASP-Dot-Net-MVC.dll
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registration-Login-ASP-Dot-Net-MVC.pdb
@@ -300,3 +299,4 @@ E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\ref\Registration-Login-ASP-Dot-Net-MVC.dll
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\Newtonsoft.Json.dll
 E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\bin\Debug\net8.0\BCrypt.Net-Next.dll
+E:\Registration-Login-ASP-Dot-Net-MVC-Project\Registration-Login-ASP-Dot-Net-MVC\obj\Debug\net8.0\Registra.9B2F162C.Up2Date
